@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /// Initializing UI variables
-        spinnerOne =  findViewById(R.id.spinnerOne);
-        spinnerTwo =  findViewById(R.id.spinnerTwo);
-        editTextOne = findViewById(R.id.editTextOne);
-        editTextTwo = findViewById(R.id.editTextTwo);
-        /**
+        spinnerOne = (Spinner) findViewById(R.id.spinnerOne);
+        spinnerTwo = (Spinner) findViewById(R.id.spinnerTwo);
+        editTextOne = (EditText) findViewById(R.id.editTextOne);
+        editTextTwo = (EditText) findViewById(R.id.editTextTwo);
+        /*
         ArrayAdapter<String> currencyList = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.currencyArray));
@@ -35,19 +35,12 @@ public class MainActivity extends AppCompatActivity {
 
          */
 
-        ArrayAdapter<String> currencyList = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_spinner_dropdown_item,
-                getResources().getStringArray(R.array.currencyArray));
+        ArrayAdapter<CharSequence> currencyList = ArrayAdapter.createFromResource(this, R.array.currencyArray, android.R.layout.simple_spinner_item);
+
+        currencyList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
-
-        spinnerOne.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
     }
 
 }
