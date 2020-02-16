@@ -39,6 +39,5 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
-        
     }
 }
