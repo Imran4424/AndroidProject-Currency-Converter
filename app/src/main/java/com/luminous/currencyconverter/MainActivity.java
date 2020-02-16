@@ -60,14 +60,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void afterTextChanged(Editable s) {
+
+                double moneyVal = Double.parseDouble(s.toString());
+
                 switch (spinnerOne.getSelectedItem().toString()) {
                     case "USD - USA":
-                        switch (spinnerTwo.getSelectedItem().toString()) {
-                            case "Euro - Europe":
 
+                        switch (spinnerTwo.getSelectedItem().toString()) {
+
+                            case "Euro - Europe":
+                                moneyVal = (moneyVal * 0.92);
+
+                                editTextTwo.setText(String.valueOf(moneyVal));
                                 break;
 
                             case "Taka - Bangladesh":
+                                moneyVal = Double.parseDouble(s.toString());
+                                moneyVal = (moneyVal * 84.59);
+
+                                editTextTwo.setText(String.valueOf(moneyVal));
                                 break;
 
                             default:
@@ -77,7 +88,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     case "Euro - Europe":
                         switch (spinnerTwo.getSelectedItem().toString()) {
                             case "USD - USA":
+                                moneyVal = (moneyVal * 1.08);
 
+                                editTextTwo.setText(String.valueOf(moneyVal));
                                 break;
 
                             case "Taka - Bangladesh":
@@ -94,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                                 break;
 
-                            case "Taka - Bangladesh":
+                            case "Euro - Europe":
                                 break;
 
                             default:
@@ -121,6 +134,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        return;
+
     }
 }
