@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void afterTextChanged(Editable s) {
-                
+
                 double moneyVal = parseDouble(editTextOne.getText().toString());
 
                 switch (spinnerOne.getSelectedItem().toString()) {
@@ -130,6 +130,88 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
+        //editTextTwo watcher
+        editTextTwo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double moneyVal = parseDouble(editTextOne.getText().toString());
+
+                switch (spinnerTwo.getSelectedItem().toString()) {
+                    case "USD - USA":
+
+                        switch (spinnerOne.getSelectedItem().toString()) {
+
+                            case "Euro - Europe":
+                                moneyVal = (moneyVal * 0.92);
+
+                                editTextOne.setText(String.valueOf(moneyVal));
+                                break;
+
+                            case "Taka - Bangladesh":
+                                moneyVal = Double.parseDouble(s.toString());
+                                moneyVal = (moneyVal * 84.59);
+
+                                editTextOne.setText(String.valueOf(moneyVal));
+                                break;
+
+                            default:
+                                editTextOne.setText(s);
+                                break;
+                        }
+                        break;
+                    case "Euro - Europe":
+                        switch (spinnerOne.getSelectedItem().toString()) {
+                            case "USD - USA":
+                                moneyVal = (moneyVal * 1.08);
+
+                                editTextOne.setText(String.valueOf(moneyVal));
+                                break;
+
+                            case "Taka - Bangladesh":
+                                moneyVal = (moneyVal * 91.95);
+
+                                editTextOne.setText(String.valueOf(moneyVal));
+                                break;
+
+                            default:
+                                editTextOne.setText(s);
+                                break;
+                        }
+                        break;
+
+                    case "Taka - Bangladesh":
+                        switch (spinnerOne.getSelectedItem().toString()) {
+                            case "USD - USA":
+                                moneyVal = (moneyVal * 0.012);
+
+                                editTextOne.setText(String.valueOf(moneyVal));
+                                break;
+
+                            case "Euro - Europe":
+                                moneyVal = (moneyVal * 0.011);
+
+                                editTextOne.setText(String.valueOf(moneyVal));
+                                break;
+
+                            default:
+                                editTextOne.setText(s);
+                                break;
+                        }
+                        break;
+                }
+            }
+        });
 
     }
 
