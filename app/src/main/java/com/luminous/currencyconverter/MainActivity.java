@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                editTextTwo.removeTextChangedListener();
                 double moneyVal = parseDouble(editTextOne.getText().toString());
 
                 switch (spinnerOne.getSelectedItem().toString()) {
