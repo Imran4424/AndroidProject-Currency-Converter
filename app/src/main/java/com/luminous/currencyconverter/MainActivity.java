@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         editTextOne = (EditText) findViewById(R.id.editTextOne);
         editTextTwo = (EditText) findViewById(R.id.editTextTwo);
 
-        ArrayAdapter<String> currencyList = new ArrayAdapter<String>(MainActivity.this,
+        final ArrayAdapter<String> currencyList = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.currencyArray));
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void afterTextChanged(Editable s) {
                 switch (spinnerOne.getSelectedItem().toString()) {
-                    case currencyList.getItem(0):
+                    case "":
 
                 }
             }
