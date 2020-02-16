@@ -94,6 +94,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 break;
 
                             case "Taka - Bangladesh":
+                                moneyVal = (moneyVal * 91.95);
+
+                                editTextTwo.setText(String.valueOf(moneyVal));
                                 break;
 
                             default:
@@ -104,10 +107,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     case "Taka - Bangladesh":
                         switch (spinnerTwo.getSelectedItem().toString()) {
                             case "USD - USA":
+                                moneyVal = (moneyVal * 0.012);
 
+                                editTextTwo.setText(String.valueOf(moneyVal));
                                 break;
 
                             case "Euro - Europe":
+                                moneyVal = (moneyVal * 0.011);
+
+                                editTextTwo.setText(String.valueOf(moneyVal));
                                 break;
 
                             default:
