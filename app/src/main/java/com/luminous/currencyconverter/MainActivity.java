@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     /// Declaring UI variables
     Spinner spinnerOne;
     Spinner spinnerTwo;
@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         /// Initializing UI variables
         spinnerOne = (Spinner) findViewById(R.id.spinnerOne);
+        spinnerOne.setOnItemSelectedListener(this);
         spinnerTwo = (Spinner) findViewById(R.id.spinnerTwo);
+        spinnerTwo.setOnItemSelectedListener(this);
         editTextOne = (EditText) findViewById(R.id.editTextOne);
         editTextTwo = (EditText) findViewById(R.id.editTextTwo);
         /*
@@ -38,12 +40,19 @@ public class MainActivity extends AppCompatActivity {
          */
 
         currencyList = ArrayAdapter.createFromResource(this, R.array.currencyArray, android.R.layout.simple_spinner_item);
-
         currencyList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
+    }
 
-        
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        editTextOne.setHint(currencyList[po]);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
