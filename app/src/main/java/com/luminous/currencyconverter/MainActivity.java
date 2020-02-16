@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         break;
                 } // switch end
 
-                editTextTwo.addTextChangedListener(editTextOneWatcher);
+                //editTextTwo.addTextChangedListener(editTextOneWatcher);
             }
         });
 
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void afterTextChanged(Editable s) {
-                editTextOne.removeTextChangedListener(editTextOneWatcher);
+               //editTextOne.removeTextChangedListener(editTextOneWatcher);
 
                 double moneyVal = parseDouble(editTextOne.getText().toString());
 
@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         break;
                 } // switch end
 
-                editTextOne.addTextChangedListener(editTextOneWatcher);
+                //editTextOne.addTextChangedListener(editTextOneWatcher);
             }
         });
 
