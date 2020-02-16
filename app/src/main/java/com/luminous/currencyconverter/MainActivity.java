@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     /// Declaring UI variables
     Spinner spinnerOne;
     Spinner spinnerTwo;
@@ -41,6 +41,18 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+        return;
     }
 
 }
