@@ -32,17 +32,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerTwo.setOnItemSelectedListener(this);
         editTextOne = (EditText) findViewById(R.id.editTextOne);
         editTextTwo = (EditText) findViewById(R.id.editTextTwo);
-        /*
+
         ArrayAdapter<String> currencyList = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.currencyArray));
 
         currencyList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-         */
-
+        /*
         currencyList = ArrayAdapter.createFromResource(this, R.array.currencyArray, android.R.layout.simple_spinner_item);
         currencyList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+         */
 
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
@@ -60,7 +60,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void afterTextChanged(Editable s) {
+                switch (spinnerOne.getSelectedItem().toString()) {
+                    case currencyList.getItem(0):
 
+                }
             }
         });
     }
