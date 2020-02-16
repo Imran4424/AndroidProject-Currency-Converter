@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Currency Converter</string>
+    
+    <string-array name="currencyArray">
+        <item> USD - USA </item>
+        <item> Euro - Europe </item>
+        <item> Taka - Bangladesh </item>
+
+    </string-array>
 </resources>
