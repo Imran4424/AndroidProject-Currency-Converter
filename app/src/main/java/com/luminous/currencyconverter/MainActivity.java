@@ -9,12 +9,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
     /// Declaring UI variables
     Spinner spinnerOne;
     Spinner spinnerTwo;
     EditText editTextOne;
     EditText editTextTwo;
+    ArrayAdapter<CharSequence> currencyList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,24 +36,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
          */
 
-        ArrayAdapter<CharSequence> currencyList = ArrayAdapter.createFromResource(this, R.array.currencyArray, android.R.layout.simple_spinner_item);
+        currencyList = ArrayAdapter.createFromResource(this, R.array.currencyArray, android.R.layout.simple_spinner_item);
 
         currencyList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
     }
-
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-        editTextOne.setHint(spinnerOne.getSelectedItem().toString());
-    }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-        return;
-    }
-
 }
