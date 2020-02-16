@@ -3,6 +3,7 @@ package com.luminous.currencyconverter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -23,7 +24,20 @@ public class MainActivity extends AppCompatActivity {
         spinnerTwo =  findViewById(R.id.spinnerTwo);
         editTextOne = findViewById(R.id.editTextOne);
         editTextTwo = findViewById(R.id.editTextTwo);
+        /**
+        ArrayAdapter<String> currencyList = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_list_item_1,
+                getResources().getStringArray(R.array.currencyArray));
 
-        
+        currencyList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+         */
+
+        ArrayAdapter<String> currencyList = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.currencyArray));
+
+        spinnerOne.setAdapter(currencyList);
+        spinnerTwo.setAdapter(currencyList);
     }
 }
