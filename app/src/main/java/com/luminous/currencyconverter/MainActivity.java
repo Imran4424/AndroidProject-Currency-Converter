@@ -62,7 +62,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void afterTextChanged(Editable s) {
 
-                double moneyVal = Double.parseDouble(s.toString());
+                double moneyVal;
+
+                try {
+                    moneyVal = Double.parseDouble(s.toString());
+                }
+
 
                 switch (spinnerOne.getSelectedItem().toString()) {
                     case "USD - USA":
