@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         /// Initializing UI variables
         spinnerOne = (Spinner) findViewById(R.id.spinnerOne);
-        spinnerOne.setOnItemClickListener(t);
         spinnerTwo = (Spinner) findViewById(R.id.spinnerTwo);
         editTextOne = (EditText) findViewById(R.id.editTextOne);
         editTextTwo = (EditText) findViewById(R.id.editTextTwo);
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                int pos, long id) {
         // An item was selected. You can retrieve the selected item using
         // parent.getItemAtPosition(pos)
-
+        editTextOne.setHint(spinnerOne.getSelectedItem().toString());
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
