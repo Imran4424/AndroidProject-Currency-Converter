@@ -61,13 +61,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void afterTextChanged(Editable s) {
-
-                double moneyVal;
-
-                try {
-                    moneyVal = Double.parseDouble(s.toString());
-                }
-
+                
+                double moneyVal = parseDouble(editTextOne.getText().toString());
 
                 switch (spinnerOne.getSelectedItem().toString()) {
                     case "USD - USA":
@@ -136,6 +131,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
 
+    }
+
+    double parseDouble(String s) {
+        try {
+            return Double.parseDouble(s);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     @Override
