@@ -48,11 +48,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        editTextOne.setHint(currencyList[po]);
+        switch (parent.getId()) {
+            case R.id.spinnerOne:
+                editTextOne.setHint(spinnerOne.getSelectedItem().toString());
+                break;
+
+            case R.id.spinnerTwo:
+                editTextTwo.setHint(spinnerTwo.getSelectedItem().toString());
+                break;
+        }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        return;
     }
 }
