@@ -1,5 +1,6 @@
 package com.luminous.currencyconverter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -42,5 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
+
+        
     }
 }
