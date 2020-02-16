@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        
+        spinnerOne =  findViewById(R.id.spinnerOne);
+        spinnerTwo =  findViewById(R.id.spinnerTwo);
     }
 }
