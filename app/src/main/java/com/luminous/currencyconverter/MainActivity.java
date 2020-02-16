@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
 
+        //editTextOne watcher
         editTextOne.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                             default:
                                 editTextTwo.setText(s);
+                                break;
                         }
                         break;
                     case "Euro - Europe":
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                             default:
                                 editTextTwo.setText(s);
+                                break;
                         }
                         break;
 
@@ -120,11 +123,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                             default:
                                 editTextTwo.setText(s);
+                                break;
                         }
                         break;
                 }
             }
         });
+
+
     }
 
     @Override
