@@ -61,7 +61,46 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void afterTextChanged(Editable s) {
                 switch (spinnerOne.getSelectedItem().toString()) {
-                    case curr
+                    case "USD - USA":
+                        switch (spinnerTwo.getSelectedItem().toString()) {
+                            case "Euro - Europe":
+
+                                break;
+
+                            case "Taka - Bangladesh":
+                                break;
+
+                            default:
+                                editTextTwo.setText(s);
+                        }
+                        break;
+                    case "Euro - Europe":
+                        switch (spinnerTwo.getSelectedItem().toString()) {
+                            case "USD - USA":
+
+                                break;
+
+                            case "Taka - Bangladesh":
+                                break;
+
+                            default:
+                                editTextTwo.setText(s);
+                        }
+                        break;
+
+                    case "Taka - Bangladesh":
+                        switch (spinnerTwo.getSelectedItem().toString()) {
+                            case "USD - USA":
+
+                                break;
+
+                            case "Taka - Bangladesh":
+                                break;
+
+                            default:
+                                editTextTwo.setText(s);
+                        }
+                        break;
                 }
             }
         });
