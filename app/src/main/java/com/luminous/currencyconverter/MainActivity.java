@@ -3,6 +3,8 @@ package com.luminous.currencyconverter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -39,5 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerOne.setAdapter(currencyList);
         spinnerTwo.setAdapter(currencyList);
+
+        spinnerOne.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
     }
+
 }
