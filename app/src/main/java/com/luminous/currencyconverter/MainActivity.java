@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     EditText editTextTwo;
     ArrayAdapter<CharSequence> currencyList;
 
+    private TextWatcher editTextOneWatcher;
+    private TextWatcher editTextTwoWatcher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerTwo.setAdapter(currencyList);
 
         //editTextOne watcher
-        editTextOne.addTextChangedListener(new TextWatcher() {
+        editTextOne.addTextChangedListener(editTextOneWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -61,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void afterTextChanged(Editable s) {
-                editTextTwo.removeTextChangedListener();
+                editTextTwo.removeTextChangedListener(editTextTwoWatcher);
+
                 double moneyVal = parseDouble(editTextOne.getText().toString());
 
                 switch (spinnerOne.getSelectedItem().toString()) {
@@ -126,12 +130,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 break;
                         }
                         break;
-                }
+                } // switch end
+
+                editTextTwo.addTextChangedListener(editTextOneWatcher);
             }
         });
 
         //editTextTwo watcher
-        editTextTwo.addTextChangedListener(new TextWatcher() {
+        editTextTwo.addTextChangedListener(editTextTwoWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -144,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void afterTextChanged(Editable s) {
+                editTextOne.removeTextChangedListener(editTextOneWatcher);
 
                 double moneyVal = parseDouble(editTextOne.getText().toString());
 
@@ -207,9 +214,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             default:
                                 editTextOne.setText(s);
                                 break;
-                        }
+                        } // inner switch end
                         break;
-                }
+                } // switch end
+
+                editTextOne.addTextChangedListener(editTextOneWatcher);
             }
         });
 
